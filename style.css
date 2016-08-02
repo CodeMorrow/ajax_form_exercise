@@ -1,3 +1,33 @@
+#album {
+	border: solid 1px grey;
+}
+
 #bandMembers {
+	border: solid 1px grey;
+	display: none;
+}
+
+#bandMembers__info {
+	border: solid 1px grey;
+	display: none;
+}
+
+#albumImages {
+	border: solid 1px grey;
+	display: none;
+}
+
+#albumInfo {
+	border: solid 1px grey;
+	display: none;
+}
+
+#albumTracks {
+	border: solid 1px grey;
+	display: none;
+}
+
+#confirmation {
+	border: solid 1px grey;
 	display: none;
 }

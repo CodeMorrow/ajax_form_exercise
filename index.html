@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="global.js"></script>
 
 	<title>AJAX Form Submission</title>
 </head>
@@ -18,19 +19,93 @@
 			<input type="text" id="albumArtist" name="albumArtist">
 			<p>Seperate multiple artists with a comma.</p>
 
-			<button class="nextButton">></button>
+			<input type="button" class="nextButton" value=">">
 		</div>
 
 		<div id="bandMembers">
-			<p>Add "albumArtist" members</p>
-			<input type="text" class="bandMember" name="bandMember" placeholder="Name"><br>
+
+			<p id="bandName">Add "albumArtist" members</p>
+			<input type="button" id="bandMemberBackButton" value="<">
+			<input type="text" class="bandMember" name="bandMember" placeholder="Name">
 
 			<input type="text" class="bandMember__insturment" name="memberInsturment" placeholder="Insturment(s)">
+			<input type="button" class="addBandMember" value="+">
 			<p>Seperate multiple insturments with a comma.</p>
 
-			<button class="nextButton">></button>
+			<input type="button" class="backButton" value="<">
+			<input type="button" class="nextButton" value=">">
+			
 		</div>
 
+		<div id="bandMembers__info">
+			<p>"Band Member" location</p>
+			<input type="text" id="bandMember__location" name="bandMember__location">
+
+			<p>"Band Member" image</p>
+
+			<input type="button" class="backButton" value="<">
+			<input type="button" class="nextButton" value=">">
+		</div>
+
+		<div id="albumImages">
+			<input type="button" class="backButton" value="<">
+
+			<p>Album images</p>
+				<select>
+					<option value="albumCover">Album Cover</option>
+					<option value="insertFront">Insert Front</option>
+					<option value="insertBack">Insert Back</option>
+					<option value="albumBack">Album Back</option>
+				</select>
+			<input type="button" class="addAlbumImage" value="+">
+
+			<input type="button" class="backButton" value="<">
+			<input type="button" class="nextButton" value=">">	
+		</div>
+
+		<div id="albumInfo">
+			<p>Album genre</p>
+				<select>
+					<option value="rock">Rock</option>
+					<option value="blues">Blues</option>
+					<option value="pop">Pop</option>
+					<option value="hip-hop">Hip-hop</option>
+				</select>
+			<p>Release date</p>
+				<input type="date" id="albumInfo__ReleaseDate" name="albumInfo__ReleaseDate">
+
+			<p>Album format</p>
+				<select>
+					<option value="lp">LP</option>
+					<option value="8-track">8-Track</option>
+					<option value="cassette">Cassette</option>
+					<option value="cd">CD</option>
+					<option value="musicDownload">Music Download</option>
+				</select>
+
+			<input type="button" class="backButton" value="<">
+			<input type="button" class="nextButton" value=">">
+		</div>
+
+		<div id="albumTracks">
+			<p>Track #</p>
+
+			<input type="button" class="backButton" value="<">
+
+			<input type="text" id="albumTrack" name="albumTrack" placeholder="Track Title">
+
+			<p>Upload Song</p>
+			<input type="button" class="addAlbumTrack" value="+">
+
+			<input type="button" class="backButton" value="<">
+			<input type="button" class="nextButton" value=">">
+			
+		</div>
+
+		<div id="confirmation">
+			<p>Thank you for uploading</p>
+			<p>"Album Name" by "Band Name"</p>
+		</div>
 
 	</form>
 

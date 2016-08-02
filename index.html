@@ -25,13 +25,16 @@
 		<div id="bandMembers">
 
 			<p id="bandName">Add "albumArtist" members</p>
-			<input type="button" id="bandMemberBackButton" value="<">
-			<input type="text" class="bandMember" name="bandMember" placeholder="Name">
 
-			<input type="text" class="bandMember__insturment" name="memberInsturment" placeholder="Insturment(s)">
-			<input type="button" class="addBandMember" value="+">
-			<p>Seperate multiple insturments with a comma.</p>
+				<div id="bandMember1">
+					<input type="button" id="bandMemberBackButton" value="<">
+					<input type="text" id="bandMemberName1" name="bandMember" placeholder="Name">
 
+					<input type="text" id="bandMember__insturment1" name="bandMemberInsturment" placeholder="Insturment(s)">
+					<input type="button" id="addBandMember" value="+">
+					<p>Seperate multiple insturments with a comma.</p>
+				</div>
+				
 			<input type="button" class="backButton" value="<">
 			<input type="button" class="nextButton" value=">">
 			
@@ -51,7 +54,7 @@
 			<input type="button" class="backButton" value="<">
 
 			<p>Album images</p>
-				<select>
+				<select name="albumImage[]">
 					<option value="albumCover">Album Cover</option>
 					<option value="insertFront">Insert Front</option>
 					<option value="insertBack">Insert Back</option>
@@ -92,7 +95,7 @@
 
 			<input type="button" class="backButton" value="<">
 
-			<input type="text" id="albumTrack" name="albumTrack" placeholder="Track Title">
+			<input type="text" id="albumTrack" name="albumTrack[]" placeholder="Track Title">
 
 			<p>Upload Song</p>
 			<input type="button" class="addAlbumTrack" value="+">

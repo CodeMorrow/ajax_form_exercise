@@ -18,6 +18,7 @@ window.addEventListener("load", function() {
 	var bandName = document.getElementById("bandName");
 	var confirmation = document.getElementById("confirmation");
 	var confirmationMessage = document.getElementById("confirmationMessage");
+	var eachBandMember = document.getElementsByClassName("eachBandMember");
 	var homeButton = document.getElementById("homeButton")
 	var nextButton = document.getElementsByClassName("nextButton");
 	var submitButton = document.getElementById("submit");
@@ -113,16 +114,16 @@ window.addEventListener("load", function() {
 
 	addBandMember.addEventListener('click', function(){
 debugger;
-		var i = 1;
+		var i = eachBandMember.length;
 		i++;
 		var newBandMember = document.createElement('div');
-		newBandMember.setAttribute("id", "bandMember"+i+"");
+		newBandMember.setAttribute("class", "eachBandMember");
 		newBandMember.innerHTML = '<input type="text" id="bandMemberName'+i+'" name="bandMember" placeholder="Name"><input type="text" id="bandMember__insturment'+i+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
 		bandMemberNames.appendChild(newBandMember);
 
 		bandMemberBackButton.style.display = "block";
 
-		var previousMember = document.getElementById('bandMember'+(i-1));
+		var previousMember = eachBandMember[(i-1)];
 		previousMember.style.display = "none";
 	});
 

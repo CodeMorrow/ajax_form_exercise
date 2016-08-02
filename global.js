@@ -24,7 +24,7 @@ window.addEventListener("load", function() {
 	var submitButton = document.getElementById("submit");
 
 
-// ############### Code of all my Next Buttons ##################
+// ############################################## Code of all my Next Buttons #############################################
 
 	nextButton[0].addEventListener('click', function(){
 
@@ -110,21 +110,30 @@ window.addEventListener("load", function() {
 
 	});
 
-// ############### Code for Add Band Member Code ############## -WIP
+// ####################################### Code for Add Band Member Code ##################################### 
 
 	addBandMember.addEventListener('click', function(){
 debugger;
-		var i = eachBandMember.length;
-		i++;
+		var newMember = eachBandMember.length-1;
+		newMember++;
+		var previousMember = newMember-1;
 		var newBandMember = document.createElement('div');
 		newBandMember.setAttribute("class", "eachBandMember");
-		newBandMember.innerHTML = '<input type="text" id="bandMemberName'+i+'" name="bandMember" placeholder="Name"><input type="text" id="bandMember__insturment'+i+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
+		newBandMember.innerHTML = '<input type="text" class="bandMemberName" id="bandMemberName'+newMember+'" name="bandMember" placeholder="Name"><input type="text" class="bandMember__insturment" id="bandMember__insturment'+newMember+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
 		bandMemberNames.appendChild(newBandMember);
 
 		bandMemberBackButton.style.display = "block";
 
-		var previousMember = eachBandMember[(i-1)];
-		previousMember.style.display = "none";
+		var hideMember = eachBandMember[previousMember];
+		hideMember.style.display = "none";
+
+	// ##################################### Code for Back to Previous Band Member Code ###########################
+
+		// 	bandMemberBackButton.addEventListener('click', function(){
+
+		// 	hideMember.style.display = "block";
+		// 	newBandMember.style.display = "none";
+		// });
 	});
 
 });

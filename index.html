@@ -9,7 +9,7 @@
 <body>
 
 
-	<form>
+	<form id="addAlbumForm">
 
 		<div id="album">
 			<p>Album Title</p>
@@ -28,11 +28,11 @@
 			<input type="button" id="addBandMember" value="+">
 
 				<div id="bandMemberNames">
+				<input type="button" id="bandMemberBackButton" value="<">
 					<div class="eachBandMember">
-						<input type="button" id="bandMemberBackButton" value="<">
-						<input type="text" id="bandMemberName1" name="bandMember" placeholder="Name">
+						<input type="text" class="bandMemberName" id="bandMemberName1" name="bandMember" placeholder="Name">
 
-						<input type="text" id="bandMember__insturment1" name="bandMemberInsturment" placeholder="Insturment(s)">
+						<input type="text" class="bandMember__insturment" id="bandMember__insturment1" name="bandMemberInsturment" placeholder="Insturment(s)">
 						<p>Seperate multiple insturments with a comma.</p>
 					</div>
 				</div>
@@ -95,9 +95,9 @@
 		<div id="albumTracks">
 			<p>Track #</p>
 
-			<input type="button" id="albumTracks__backButton" value="<">
+			<input type="button" class="albumTracks__backButton" id="albumTracks__backButton1" value="<">
 
-			<input type="text" id="albumTrack" name="albumTrack[]" placeholder="Track Title">
+			<input type="text" class="albumTrack" id="albumTrack1" name="albumTrack" placeholder="Track Title">
 
 			<p>Upload Song</p><input type="button" class="addAlbumTrack" value="+">
 

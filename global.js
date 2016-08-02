@@ -6,6 +6,7 @@ window.addEventListener("load", function() {
 	var albumImages = document.getElementById("albumImages");
 	var albumImages__backButton = document.getElementById("albumImages__backButton");
 	var albumInfo = document.getElementById("albumInfo");
+	var albumTitle = document.getElementById("albumTitle");
 	var albumTracks = document.getElementById("albumTracks");
 	var albumTracks__backButton = document.getElementById("albumTracks__backButton");
 	var backButton = document.getElementsByClassName("backButton");
@@ -16,6 +17,7 @@ window.addEventListener("load", function() {
 	var bandMembers__info = document.getElementById("bandMembers__info");
 	var bandName = document.getElementById("bandName");
 	var confirmation = document.getElementById("confirmation");
+	var confirmationMessage = document.getElementById("confirmationMessage");
 	var homeButton = document.getElementById("homeButton")
 	var nextButton = document.getElementsByClassName("nextButton");
 	var submitButton = document.getElementById("submit");
@@ -68,6 +70,14 @@ window.addEventListener("load", function() {
 
 		albumTracks.style.display = "none";
 		confirmation.style.display = "block";
+
+		confirmationMessage.innerHTML = albumTitle.value + " by " + albumArtist.value;
+
+	});
+
+	homeButton.addEventListener('click', function(){
+
+		window.location.reload();
 
 	});
 

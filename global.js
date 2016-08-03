@@ -24,6 +24,8 @@ window.addEventListener("load", function() {
 	var eachBandMember = document.getElementsByClassName("eachBandMember");
 	var nextButton = document.getElementsByClassName("nextButton");
 
+	
+
 
 // ############################################## Code of all my Next Buttons #############################################
 
@@ -37,41 +39,43 @@ window.addEventListener("load", function() {
 	});
 
 	nextButton[1].addEventListener('click', function(){
-debugger;
+
 		bandMembers.style.display ="none";
-
-		if (eachBandMember.length === 1) {
-
-			var bandMemberName1 = document.getElementById("bandMemberName1");
-			var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
-			var bandMemberImage1 = document.getElementById("bandMemberImage1");
 			
-			bandMembers__info.style.display = "block";
-			bandMemberLocation1.innerHTML = bandMemberName1.value +"'s location";
-			bandMemberImage1.innerHTML = bandMemberName1.value +"'s Image";
-
-		} else {
-			
-			for (var i = 1; i <= eachBandMember.length; i++) {
+			for (var i = 0; i < eachBandMember.length; i++) {
 				
 				var newBandMemberInfo = document.createElement('div');
 				
 				newBandMemberInfo.setAttribute("class", "eachBandMemberInfo");
-				newBandMemberInfo.innerHTML = '<div style="display:none;" id="eachBandMemberInfo'+i+'"><input type="button" class="bandMemberInfoBackButton" value="<"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImage'+i+'">--</p><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
+				newBandMemberInfo.innerHTML = '<div style="display:none;" id="eachBandMemberInfo'+i+'"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImage'+i+'">--</p><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
 				bandMembers__info.insertBefore(newBandMemberInfo, backButton[1]);
 
 			}
 
-			var eachBandMemberInfo1 = document.getElementById("eachBandMemberInfo1")
-			var bandMemberName1 = document.getElementById("bandMemberName1");
-			var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
-			var bandMemberImage1 = document.getElementById("bandMemberImage1");
+			var eachBandMemberInfo0 = document.getElementById("eachBandMemberInfo0")
+			var bandMemberName0 = document.getElementById("bandMemberName0");
+			var bandMemberLocation0 = document.getElementById("bandMemberLocation0");
+			var bandMemberImage0 = document.getElementById("bandMemberImage0");
+			var bandMemberInfoForwardButton = document.getElementsByClassName("bandMemberInfoForwardButton");
 
 			bandMembers__info.style.display = "block";
-			eachBandMemberInfo1.style.display = "block";
-			bandMemberLocation1.innerHTML = bandMemberName1.value +"'s location";
-			bandMemberImage1.innerHTML = bandMemberName1.value +"'s Image";
-		}
+			eachBandMemberInfo0.style.display = "block";
+			bandMemberLocation0.innerHTML = bandMemberName0.value +"'s location";
+			bandMemberImage0.innerHTML = bandMemberName0.value +"'s Image";
+
+				bandMemberInfoForwardButton[0].addEventListener('click', function(){
+debugger;
+					var eachBandMemberInfo1 = document.getElementById("eachBandMemberInfo1");
+					var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
+					var bandMemberImage1 = document.getElementById("bandMemberImage1");
+
+					eachBandMemberInfo0.style.display = "none";
+					eachBandMemberInfo1.style.display = "block";
+					bandMemberLocation1.innerHTML = bandMemberName1.value +"'s location";
+					bandMemberImage1.innerHTML = bandMemberName1.value +"'s Image";
+
+				});
+		
 	});
 
 	nextButton[2].addEventListener('click', function(){
@@ -117,35 +121,46 @@ debugger;
 // ############### Code of all my Back Buttons ##################
 
 	backButton[0].addEventListener('click', function(){
-		album.style.display = "block";
+		
 		bandMembers.style.display ="none";
+		album.style.display = "block";
+		
 	});
 
 	backButton[1].addEventListener('click', function(){
-		bandMembers.style.display ="block";
+		
 		bandMembers__info.style.display = "none";
+		bandMembers.style.display ="block";
+		eachBandMember[0].style.display ="block";
+		eachBandMember[1].style.display ="none";    // This works for only two band members
+
 	});
 
 	backButton[2].addEventListener('click', function(){
-		bandMembers__info.style.display ="block";
+
 		albumImages.style.display = "none";
+		bandMembers__info.style.display ="block";
+
 	});
 
 	backButton[3].addEventListener('click', function(){
-		albumImages.style.display = "block";
+		
 		albumInfo.style.display = "none";
+		albumImages.style.display = "block";
+		
 	});
 
 	backButton[4].addEventListener('click', function(){
-		albumInfo.style.display = "block";
+
 		albumTracks.style.display = "none";
+		albumInfo.style.display = "block";
 
 	});
 
 // ####################################### Code for Add Band Member Code ##################################### 
 
 	addBandMember.addEventListener('click', function(){
-
+debugger;
 		var newMember = eachBandMember.length-1;
 		newMember++;
 		var previousMember = newMember-1;
@@ -168,6 +183,9 @@ debugger;
 		// });
 	});
 
+// ####################################### Code to View Next Band Member Info Code ##################################### 
 
+	
+	
 
 });

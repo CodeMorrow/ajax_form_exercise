@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
 	var albumInfo = document.getElementById("albumInfo");
 	var albumTitle = document.getElementById("albumTitle");
 	var albumTracks = document.getElementById("albumTracks");
-	var albumTracks__backButton = document.getElementById("albumTracks__backButton");
+	var albumTracks__backButton = document.getElementsByClassName("albumTracks__backButton");
 	var bandMember__location = document.getElementById("bandMember__location");
 	var bandMemberBackButton = document.getElementById("bandMemberBackButton");
 	var bandMemberNames = document.getElementById("bandMemberNames");
@@ -32,7 +32,7 @@ window.addEventListener("load", function() {
 	nextButton[0].addEventListener('click', function(){
 
 		album.style.display = "none";
-		bandMembers.style.display ="block";
+		bandMembers.style.display ="flex";
 		bandMemberBackButton.style.display = "none";
 		bandName.innerHTML = "Add " + albumArtist.value +"'s Members";
 
@@ -46,8 +46,8 @@ window.addEventListener("load", function() {
 				
 				var newBandMemberInfo = document.createElement('div');
 				
-				newBandMemberInfo.setAttribute("class", "eachBandMemberInfo");
-				newBandMemberInfo.innerHTML = '<div style="display:none;" id="eachBandMemberInfo'+i+'"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImageMessage'+i+'">--</p><input type="file" id="bandMemberImage'+i+'" name="bandMemberImage" accept="image/*"><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
+				newBandMemberInfo.setAttribute("class", "BandMemberInfo");
+				newBandMemberInfo.innerHTML = '<div style="display:none;" class="eachBandMemberInfo" id="eachBandMemberInfo'+i+'"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImageMessage'+i+'">--</p><input type="file" id="bandMemberImage'+i+'" name="bandMemberImage" accept="image/*"><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
 				bandMembers__info.insertBefore(newBandMemberInfo, backButton[1]);
 
 			}
@@ -58,8 +58,8 @@ window.addEventListener("load", function() {
 			var bandMemberImageMessage0 = document.getElementById("bandMemberImageMessage0");
 			var bandMemberInfoForwardButton = document.getElementsByClassName("bandMemberInfoForwardButton");
 
-			bandMembers__info.style.display = "block";
-			eachBandMemberInfo0.style.display = "block";
+			bandMembers__info.style.display = "flex";
+			eachBandMemberInfo0.style.display = "flex";
 			bandMemberLocation0.innerHTML = bandMemberName0.value +"'s location";
 			bandMemberImageMessage0.innerHTML = bandMemberName0.value +"'s Image";
 
@@ -70,7 +70,7 @@ debugger;
 					var bandMemberImageMessage1 = document.getElementById("bandMemberImageMessage1");
 
 					eachBandMemberInfo0.style.display = "none";
-					eachBandMemberInfo1.style.display = "block";
+					eachBandMemberInfo1.style.display = "flex";
 					bandMemberLocation1.innerHTML = bandMemberName1.value +"'s location";
 					bandMemberImageMessage1.innerHTML = bandMemberName1.value +"'s Image";
 
@@ -81,7 +81,7 @@ debugger;
 	nextButton[2].addEventListener('click', function(){
 
 		bandMembers__info.style.display ="none";
-		albumImages.style.display = "block";
+		albumImages.style.display = "flex";
 
 		albumImages__backButton.style.display = "none"
 
@@ -90,23 +90,23 @@ debugger;
 	nextButton[3].addEventListener('click', function(){
 
 		albumImages.style.display = "none";
-		albumInfo.style.display = "block";
+		albumInfo.style.display = "flex";
 
 	});
 
 	nextButton[4].addEventListener('click', function(){
 
 		albumInfo.style.display = "none";
-		albumTracks.style.display = "block";
+		albumTracks.style.display = "flex";
 
-		albumTracks__backButton.style.display = "none";
+		albumTracks__backButton[0].style.display = "none";
 
 	});
 
 	submitButton.addEventListener('click', function(){
 
 		albumTracks.style.display = "none";
-		confirmation.style.display = "block";
+		confirmation.style.display = "flex";
 
 		confirmationMessage.innerHTML = albumTitle.value + " by " + albumArtist.value;
 
@@ -123,37 +123,40 @@ debugger;
 	backButton[0].addEventListener('click', function(){
 		
 		bandMembers.style.display ="none";
-		album.style.display = "block";
+		album.style.display = "flex";
 		
 	});
 
 	backButton[1].addEventListener('click', function(){
 		
 		bandMembers__info.style.display = "none";
-		bandMembers.style.display ="block";
-		eachBandMember[0].style.display ="block";
-		eachBandMember[1].style.display ="none";    // This works for only two band members
+		bandMembers.style.display ="flex";
+		eachBandMember[0].style.display ="flex";
+		
+		if (eachBandMember.length > 1){
+			eachBandMember[-1].style.display ="none";    // This works for only two band members
+		}
 
 	});
 
 	backButton[2].addEventListener('click', function(){
 
 		albumImages.style.display = "none";
-		bandMembers__info.style.display ="block";
+		bandMembers__info.style.display ="flex";
 
 	});
 
 	backButton[3].addEventListener('click', function(){
 		
 		albumInfo.style.display = "none";
-		albumImages.style.display = "block";
+		albumImages.style.display = "flex";
 		
 	});
 
 	backButton[4].addEventListener('click', function(){
 
 		albumTracks.style.display = "none";
-		albumInfo.style.display = "block";
+		albumInfo.style.display = "flex";
 
 	});
 
@@ -169,7 +172,7 @@ debugger;
 		newBandMember.innerHTML = '<input type="text" class="bandMemberName" id="bandMemberName'+newMember+'" name="bandMember" placeholder="Name"><input type="text" class="bandMember__insturment" id="bandMember__insturment'+newMember+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
 		bandMemberNames.appendChild(newBandMember);
 
-		bandMemberBackButton.style.display = "block";
+		bandMemberBackButton.style.display = "flex";
 
 		var hideMember = eachBandMember[previousMember];
 		hideMember.style.display = "none";
@@ -178,7 +181,7 @@ debugger;
 
 		// 	bandMemberBackButton.addEventListener('click', function(){
 
-		// 	hideMember.style.display = "block";
+		// 	hideMember.style.display = "flex";
 		// 	newBandMember.style.display = "none";
 		// });
 	});

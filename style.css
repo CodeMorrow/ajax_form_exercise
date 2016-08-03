@@ -4,17 +4,31 @@ body {
 	margin: 0;
 }
 
-#addAlbumForm {
-	width: 700px;
-	height: 300px;
+.formDiv {
 	display: flex;
-	justify-content: space-around;
+	width: 410px;
+	height: 410px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: solid 1px grey;
+	border-radius: 50%;
+}
+
+#addAlbumForm {
+	width: 1000px;
+	height: 600px;
+	display: flex;
+	justify-content: center;
 	align-items: center;
 	border: solid 1px grey;
 }
 
 #album {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #bandMembers {
@@ -39,4 +53,15 @@ body {
 
 #confirmation {
 	display: none;
+}
+
+.eachBandMemberInfo{
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.eachBandMember {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }

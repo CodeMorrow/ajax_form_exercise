@@ -11,7 +11,7 @@
 
 	<form id="addAlbumForm">
 
-		<div id="album">
+		<div id="album" class="formDiv">
 			<p>Album Title</p>
 			<input type="text" id="albumTitle" name="albumTitle">
 
@@ -22,7 +22,7 @@
 			<input type="button" class="nextButton" value="->">
 		</div>
 
-		<div id="bandMembers">
+		<div id="bandMembers" class="formDiv">
 
 			<p id="bandName">Add "albumArtist" members</p>
 			<input type="button" id="addBandMember" value="+">
@@ -44,14 +44,14 @@
 			
 		</div>
 
-		<div id="bandMembers__info">
+		<div id="bandMembers__info" class="formDiv">
 
 			<input type="button" class="backButton" value="<-">
 			<input type="button" class="nextButton" value="->">
 
 		</div>
 
-		<div id="albumImages">
+		<div id="albumImages" class="formDiv">
 			<input type="button" id="albumImages__backButton" value="<">
 
 			<p>Album images</p>
@@ -68,7 +68,7 @@
 			<input type="button" class="nextButton" value="->">	
 		</div>
 
-		<div id="albumInfo">
+		<div id="albumInfo" class="formDiv">
 			<p>Album genre</p>
 				<select>
 					<option value="rock">Rock</option>
@@ -92,7 +92,7 @@
 			<input type="button" class="nextButton" value="->">
 		</div>
 
-		<div id="albumTracks">
+		<div id="albumTracks" class="formDiv">
 			<p>Track #</p>
 
 			<input type="button" class="albumTracks__backButton" id="albumTracks__backButton1" value="<">
@@ -102,14 +102,14 @@
 			<p>Upload Song</p>
 			<input type="file" name="song" accept="audio/*">
 
-			<input type="button" class="addAlbumTrack" value="+">
+			<input type="button" class="addAlbumTrack" value="+"><br>
 
 			<input type="button" class="backButton" value="<-">
 			<input type="button" id="submit" value="Submit">
 			
 		</div>
 
-		<div id="confirmation">
+		<div id="confirmation" class="formDiv">
 			<p>Thank you for uploading</p>
 			<p id="confirmationMessage">"Album Name" by "Band Name"</p>
 			<input type="button" id="homeButton" value="Refresh">

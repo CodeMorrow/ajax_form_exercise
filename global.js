@@ -37,21 +37,40 @@ window.addEventListener("load", function() {
 	});
 
 	nextButton[1].addEventListener('click', function(){
-
+debugger;
 		bandMembers.style.display ="none";
 
-		if (eachBandMember.length = 1) {
+		if (eachBandMember.length === 1) {
 
 			var bandMemberName1 = document.getElementById("bandMemberName1");
 			var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
 			var bandMemberImage1 = document.getElementById("bandMemberImage1");
+			
 			bandMembers__info.style.display = "block";
-			bandMemberLocation1.innerHTML = bandMemberName1 +"'s location";
-			bandMemberImage1.innerHTML = bandMemberName1 +"'s Image";
+			bandMemberLocation1.innerHTML = bandMemberName1.value +"'s location";
+			bandMemberImage1.innerHTML = bandMemberName1.value +"'s Image";
 
 		} else {
-
 			
+			for (var i = 1; i <= eachBandMember.length; i++) {
+				
+				var newBandMemberInfo = document.createElement('div');
+				
+				newBandMemberInfo.setAttribute("class", "eachBandMemberInfo");
+				newBandMemberInfo.innerHTML = '<div style="display:none;" id="eachBandMemberInfo'+i+'"><input type="button" class="bandMemberInfoBackButton" value="<"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImage'+i+'">--</p><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
+				bandMembers__info.appendChild(newBandMemberInfo);
+
+			}
+
+			var eachBandMemberInfo1 = document.getElementById("eachBandMemberInfo1")
+			var bandMemberName1 = document.getElementById("bandMemberName1");
+			var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
+			var bandMemberImage1 = document.getElementById("bandMemberImage1");
+
+			bandMembers__info.style.display = "block";
+			eachBandMemberInfo1.style.display = "block";
+			bandMemberLocation1.innerHTML = bandMemberName1.value +"'s location";
+			bandMemberImage1.innerHTML = bandMemberName1.value +"'s Image";
 		}
 	});
 
@@ -126,7 +145,7 @@ window.addEventListener("load", function() {
 // ####################################### Code for Add Band Member Code ##################################### 
 
 	addBandMember.addEventListener('click', function(){
-debugger;
+
 		var newMember = eachBandMember.length-1;
 		newMember++;
 		var previousMember = newMember-1;

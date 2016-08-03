@@ -58,7 +58,7 @@ debugger;
 				
 				newBandMemberInfo.setAttribute("class", "eachBandMemberInfo");
 				newBandMemberInfo.innerHTML = '<div style="display:none;" id="eachBandMemberInfo'+i+'"><input type="button" class="bandMemberInfoBackButton" value="<"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImage'+i+'">--</p><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
-				bandMembers__info.appendChild(newBandMemberInfo);
+				bandMembers__info.insertBefore(newBandMemberInfo, backButton[1]);
 
 			}
 
@@ -159,7 +159,7 @@ debugger;
 		var hideMember = eachBandMember[previousMember];
 		hideMember.style.display = "none";
 
-	// ##################################### Code for Back to Previous Band Member Code ###########################
+	// ##################################### Code for Back to Previous Band Member Code ########################### -WIP!!!
 
 		// 	bandMemberBackButton.addEventListener('click', function(){
 

@@ -9,7 +9,6 @@ window.addEventListener("load", function() {
 	var albumTitle = document.getElementById("albumTitle");
 	var albumTracks = document.getElementById("albumTracks");
 	var albumTracks__backButton = document.getElementById("albumTracks__backButton");
-	var backButton = document.getElementsByClassName("backButton");
 	var bandMember__location = document.getElementById("bandMember__location");
 	var bandMemberBackButton = document.getElementById("bandMemberBackButton");
 	var bandMemberNames = document.getElementById("bandMemberNames");
@@ -18,10 +17,12 @@ window.addEventListener("load", function() {
 	var bandName = document.getElementById("bandName");
 	var confirmation = document.getElementById("confirmation");
 	var confirmationMessage = document.getElementById("confirmationMessage");
-	var eachBandMember = document.getElementsByClassName("eachBandMember");
 	var homeButton = document.getElementById("homeButton")
-	var nextButton = document.getElementsByClassName("nextButton");
 	var submitButton = document.getElementById("submit");
+
+	var backButton = document.getElementsByClassName("backButton");
+	var eachBandMember = document.getElementsByClassName("eachBandMember");
+	var nextButton = document.getElementsByClassName("nextButton");
 
 
 // ############################################## Code of all my Next Buttons #############################################
@@ -38,8 +39,20 @@ window.addEventListener("load", function() {
 	nextButton[1].addEventListener('click', function(){
 
 		bandMembers.style.display ="none";
-		bandMembers__info.style.display = "block";
-		bandMember__location.innerHTML = "Add " + bandMemberName1 +"'s location";
+
+		if (eachBandMember.length = 1) {
+
+			var bandMemberName1 = document.getElementById("bandMemberName1");
+			var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
+			var bandMemberImage1 = document.getElementById("bandMemberImage1");
+			bandMembers__info.style.display = "block";
+			bandMemberLocation1.innerHTML = bandMemberName1 +"'s location";
+			bandMemberImage1.innerHTML = bandMemberName1 +"'s Image";
+
+		} else {
+
+			
+		}
 	});
 
 	nextButton[2].addEventListener('click', function(){
@@ -135,5 +148,7 @@ debugger;
 		// 	newBandMember.style.display = "none";
 		// });
 	});
+
+
 
 });

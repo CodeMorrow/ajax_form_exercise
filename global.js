@@ -47,7 +47,7 @@ window.addEventListener("load", function() {
 				var newBandMemberInfo = document.createElement('div');
 				
 				newBandMemberInfo.setAttribute("class", "eachBandMemberInfo");
-				newBandMemberInfo.innerHTML = '<div style="display:none;" id="eachBandMemberInfo'+i+'"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImage'+i+'">--</p><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
+				newBandMemberInfo.innerHTML = '<div style="display:none;" id="eachBandMemberInfo'+i+'"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImageMessage'+i+'">--</p><input type="file" id="bandMemberImage'+i+'" name="bandMemberImage" accept="image/*"><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
 				bandMembers__info.insertBefore(newBandMemberInfo, backButton[1]);
 
 			}
@@ -55,24 +55,24 @@ window.addEventListener("load", function() {
 			var eachBandMemberInfo0 = document.getElementById("eachBandMemberInfo0")
 			var bandMemberName0 = document.getElementById("bandMemberName0");
 			var bandMemberLocation0 = document.getElementById("bandMemberLocation0");
-			var bandMemberImage0 = document.getElementById("bandMemberImage0");
+			var bandMemberImageMessage0 = document.getElementById("bandMemberImageMessage0");
 			var bandMemberInfoForwardButton = document.getElementsByClassName("bandMemberInfoForwardButton");
 
 			bandMembers__info.style.display = "block";
 			eachBandMemberInfo0.style.display = "block";
 			bandMemberLocation0.innerHTML = bandMemberName0.value +"'s location";
-			bandMemberImage0.innerHTML = bandMemberName0.value +"'s Image";
+			bandMemberImageMessage0.innerHTML = bandMemberName0.value +"'s Image";
 
 				bandMemberInfoForwardButton[0].addEventListener('click', function(){
 debugger;
 					var eachBandMemberInfo1 = document.getElementById("eachBandMemberInfo1");
 					var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
-					var bandMemberImage1 = document.getElementById("bandMemberImage1");
+					var bandMemberImageMessage1 = document.getElementById("bandMemberImageMessage1");
 
 					eachBandMemberInfo0.style.display = "none";
 					eachBandMemberInfo1.style.display = "block";
 					bandMemberLocation1.innerHTML = bandMemberName1.value +"'s location";
-					bandMemberImage1.innerHTML = bandMemberName1.value +"'s Image";
+					bandMemberImageMessage1.innerHTML = bandMemberName1.value +"'s Image";
 
 				});
 		
@@ -183,7 +183,7 @@ debugger;
 		// });
 	});
 
-// ####################################### Code to View Next Band Member Info Code ##################################### 
+// ####################################### Code to Add New Album Image ##################################### 
 
 	
 	

@@ -47,13 +47,13 @@ window.addEventListener("load", function() {
 	nextButton[1].addEventListener('click', function(){
 
 		bandMembers.style.display ="none";
-			
+debugger;
 			for (var i = 0; i < eachBandMember.length; i++) {
 				
 				var newBandMemberInfo = document.createElement('div');
 				
 				newBandMemberInfo.setAttribute("class", "BandMemberInfo");
-				newBandMemberInfo.innerHTML = '<div style="display:none;" class="eachBandMemberInfo" id="eachBandMemberInfo'+i+'"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImageMessage'+i+'">--</p><input type="file" id="bandMemberImage'+i+'" name="bandMemberImage" accept="image/*"><input type="button" class="bandMemberInfoForwardButton" value=">"></div>';
+				newBandMemberInfo.innerHTML = '<div style="display:none;" class="eachBandMemberInfo" id="eachBandMemberInfo'+i+'"><p id="bandMemberLocation'+i+'">--</p><input type="text" id="bandMember__location'+i+'" name="bandMember__location"><p id="bandMemberImageMessage'+i+'">--</p><input type="file" id="bandMemberImage'+i+'" name="bandMemberImage" accept="image/*"></div>';
 				bandMembers__info.insertBefore(newBandMemberInfo, backButton[1]);
 
 			}
@@ -63,18 +63,22 @@ window.addEventListener("load", function() {
 			var bandMemberLocation0 = document.getElementById("bandMemberLocation0");
 			var bandMemberImageMessage0 = document.getElementById("bandMemberImageMessage0");
 
-			var bandMemberInfoForwardButton = document.getElementsByClassName("bandMemberInfoForwardButton");
+			var bandMemberInfoForwardButton = document.getElementById("bandMemberInfoForwardButton");
 
 			bandMembers__info.style.display = "flex";
 			eachBandMemberInfo0.style.display = "flex";
+			bandMemberInfoForwardButton.style.display = "flex";
 			bandMemberLocation0.innerHTML = bandMemberName0.value +"'s location";
 			bandMemberImageMessage0.innerHTML = bandMemberName0.value +"'s Image";
 
-				bandMemberInfoForwardButton[0].addEventListener('click', function(){
+				bandMemberInfoForwardButton.addEventListener('click', function(){
+
+					var eachBandMemberNumber = 0
+					eachBandMemberNumber++
 debugger;
-					var eachBandMemberInfo1 = document.getElementById("eachBandMemberInfo1");
-					var bandMemberLocation1 = document.getElementById("bandMemberLocation1");
-					var bandMemberImageMessage1 = document.getElementById("bandMemberImageMessage1");
+					var eachBandMemberInfo = document.getElementById("eachBandMemberInfo"+eachBandMemberNumber);
+					var bandMemberLocation = document.getElementById("bandMemberLocation"+eachBandMemberNumber);
+					var bandMemberImageMessage = document.getElementById("bandMemberImageMessage"+eachBandMemberNumber);
 
 					eachBandMemberInfo0.style.display = "none";
 					eachBandMemberInfo1.style.display = "flex";
@@ -90,6 +94,7 @@ debugger;
 		bandMembers__info.style.display ="none";
 		albumImages.style.display = "flex";
 		albumImages__backButton[0].style.display = "none";
+		bandMemberInfoForwardButton.style.display = "flex";
 
 	});
 
@@ -175,7 +180,7 @@ debugger;
 		var previousMember = newMemberNumber-1;
 		var newBandMember = document.createElement('div');
 		newBandMember.setAttribute("class", "eachBandMember");
-		newBandMember.innerHTML = '<input type="text" class="bandMemberName" id="bandMemberName'+newMemberNumber+'" name="bandMember" placeholder="Name"><input type="text" class="bandMember__insturment" id="bandMember__insturment'+newMember+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
+		newBandMember.innerHTML = '<input type="text" class="bandMemberName" id="bandMemberName'+newMemberNumber+'" name="bandMember" placeholder="Name"><input type="text" class="bandMember__insturment" id="bandMember__insturment'+newMemberNumber+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
 		bandMemberNames.appendChild(newBandMember);
 
 		bandMemberBackButton.style.display = "flex";

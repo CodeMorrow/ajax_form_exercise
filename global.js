@@ -218,7 +218,7 @@ debugger;
 		var previousTrack = newTrackNumber-1;
 		var actualTrackNumber = newTrackNumber+1;
 		var newAlbumTrack = document.createElement('div');
-		newAlbumTrack.setAttribute("class", "eachAlbumTack");
+		newAlbumTrack.setAttribute("class", "eachAlbumTrack");
 		newAlbumTrack.innerHTML = '<p id="trackNumber'+newTrackNumber+'">Track #</p><input type="button" class="albumTracks__backButton" id="albumTracks__backButton'+newTrackNumber+'" value="<"><input type="text" class="albumTrack" id="albumTrack'+newTrackNumber+'" name="albumTrack" placeholder="Track Title"><p>Upload Song</p><input type="file" name="song" accept="audio/*">'
 		albumTracks.insertBefore(newAlbumTrack, backButton[4]);
 		var trackId= 'trackNumber'+String(newTrackNumber);

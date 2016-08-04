@@ -175,7 +175,7 @@ debugger;
 		var previousMember = newMemberNumber-1;
 		var newBandMember = document.createElement('div');
 		newBandMember.setAttribute("class", "eachBandMember");
-		newBandMember.innerHTML = '<input type="text" class="bandMemberName" id="bandMemberName'+newMember+'" name="bandMember" placeholder="Name"><input type="text" class="bandMember__insturment" id="bandMember__insturment'+newMember+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
+		newBandMember.innerHTML = '<input type="text" class="bandMemberName" id="bandMemberName'+newMemberNumber+'" name="bandMember" placeholder="Name"><input type="text" class="bandMember__insturment" id="bandMember__insturment'+newMember+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
 		bandMemberNames.appendChild(newBandMember);
 
 		bandMemberBackButton.style.display = "flex";

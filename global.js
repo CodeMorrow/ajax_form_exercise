@@ -1,14 +1,15 @@
 window.addEventListener("load", function() {
 
+	var addAlbumImage = document.getElementById("addAlbumImage");
+	var addAlbumTrack = document.getElementById("addAlbumTrack");
 	var addBandMember = document.getElementById("addBandMember");
 	var album = document.getElementById("album");
 	var albumArtist = document.getElementById("albumArtist");
 	var albumImages = document.getElementById("albumImages");
-	var albumImages__backButton = document.getElementById("albumImages__backButton");
+	var albumImageDiv = document.getElementById("albumImageDiv");
 	var albumInfo = document.getElementById("albumInfo");
 	var albumTitle = document.getElementById("albumTitle");
 	var albumTracks = document.getElementById("albumTracks");
-	var albumTracks__backButton = document.getElementsByClassName("albumTracks__backButton");
 	var bandMember__location = document.getElementById("bandMember__location");
 	var bandMemberBackButton = document.getElementById("bandMemberBackButton");
 	var bandMemberNames = document.getElementById("bandMemberNames");
@@ -20,7 +21,12 @@ window.addEventListener("load", function() {
 	var homeButton = document.getElementById("homeButton")
 	var submitButton = document.getElementById("submit");
 
+
+	var albumImages__backButton = document.getElementsByClassName("albumImages__backButton");
+	var albumTracks__backButton = document.getElementsByClassName("albumTracks__backButton");
 	var backButton = document.getElementsByClassName("backButton");
+	var eachAlbumImage = document.getElementsByClassName("eachAlbumImage");
+	var eachAlbumTrack = document.getElementsByClassName("eachAlbumTrack");
 	var eachBandMember = document.getElementsByClassName("eachBandMember");
 	var nextButton = document.getElementsByClassName("nextButton");
 
@@ -56,6 +62,7 @@ window.addEventListener("load", function() {
 			var bandMemberName0 = document.getElementById("bandMemberName0");
 			var bandMemberLocation0 = document.getElementById("bandMemberLocation0");
 			var bandMemberImageMessage0 = document.getElementById("bandMemberImageMessage0");
+
 			var bandMemberInfoForwardButton = document.getElementsByClassName("bandMemberInfoForwardButton");
 
 			bandMembers__info.style.display = "flex";
@@ -82,8 +89,7 @@ debugger;
 
 		bandMembers__info.style.display ="none";
 		albumImages.style.display = "flex";
-
-		albumImages__backButton.style.display = "none"
+		albumImages__backButton[0].style.display = "none";
 
 	});
 
@@ -134,7 +140,7 @@ debugger;
 		eachBandMember[0].style.display ="flex";
 		
 		if (eachBandMember.length > 1){
-			eachBandMember[-1].style.display ="none";    // This works for only two band members
+			eachBandMember[eachBandMember.length-1].style.display ="none";    // This works for only two band members
 		}
 
 	});
@@ -164,9 +170,9 @@ debugger;
 
 	addBandMember.addEventListener('click', function(){
 debugger;
-		var newMember = eachBandMember.length-1;
-		newMember++;
-		var previousMember = newMember-1;
+		var newMemberNumber = eachBandMember.length-1;
+		newMemberNumber++;
+		var previousMember = newMemberNumber-1;
 		var newBandMember = document.createElement('div');
 		newBandMember.setAttribute("class", "eachBandMember");
 		newBandMember.innerHTML = '<input type="text" class="bandMemberName" id="bandMemberName'+newMember+'" name="bandMember" placeholder="Name"><input type="text" class="bandMember__insturment" id="bandMember__insturment'+newMember+'" name="bandMemberInsturment" placeholder="Insturment(s)"><p>Seperate multiple insturments with a comma.</p>';
@@ -188,7 +194,40 @@ debugger;
 
 // ####################################### Code to Add New Album Image ##################################### 
 
+	addAlbumImage.addEventListener('click', function(){
+debugger;		
+		var newImageNumber = eachAlbumImage.length-1;
+		newImageNumber++;
+		var previousImage = newImageNumber-1;
+		var newAlbumImage = document.createElement('div');
+		newAlbumImage.setAttribute("class", "eachAlbumImage");
+		newAlbumImage.innerHTML = '<input type="button" class="albumImages__backButton" value="<"><p>Album images</p><select name="albumImage"><option value="albumCover">Album Cover</option><option value="insertFront">Insert Front</option><option value="insertBack">Insert Back</option><option value="albumBack">Album Back</option></select><input type="file" id="albumImage'+newImageNumber+'" name="pic" accept="image/*">';
+		albumImages.insertBefore(newAlbumImage, backButton[2]);
+
+		var hideImage = eachAlbumImage[previousImage];
+		hideImage.style.display = "none";
+
+	});
+
+// ####################################### Code to Add New Album Track ##################################### 	
 	
-	
+	addAlbumTrack.addEventListener('click', function(){
+debugger;
+		var newTrackNumber = eachAlbumTrack.length-1;
+		newTrackNumber++;
+		var previousTrack = newTrackNumber-1;
+		var actualTrackNumber = newTrackNumber+1;
+		var newAlbumTrack = document.createElement('div');
+		newAlbumTrack.setAttribute("class", "eachAlbumTack");
+		newAlbumTrack.innerHTML = '<p id="trackNumber'+newTrackNumber+'">Track #</p><input type="button" class="albumTracks__backButton" id="albumTracks__backButton'+newTrackNumber+'" value="<"><input type="text" class="albumTrack" id="albumTrack'+newTrackNumber+'" name="albumTrack" placeholder="Track Title"><p>Upload Song</p><input type="file" name="song" accept="audio/*">'
+		albumTracks.insertBefore(newAlbumTrack, backButton[4]);
+		var trackId= 'trackNumber'+String(newTrackNumber);
+		var trackNumber = document.getElementById(trackId);
+		
+		trackNumber.innerHTML = 'Track '+actualTrackNumber;
+
+		var hideTrack = eachAlbumTrack[previousTrack];
+		hideTrack.style.display = "none";
+	});
 
 });

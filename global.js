@@ -182,7 +182,7 @@ debugger;
 			var albumDB = JSON.parse(e.target.repsonseText);
 
 			for (var i = 0; i < albumDB.albumTitle.length; i++) {
-				if (albumDB.albumTitle == albumTitle.value){
+				if (albumDB.albumTitle[i] == albumTitle.value){
 					albumMessage.style.display = "flex";
 					albumMessage.innerHTML = "This album already exists.";
 					nextButton[0].disabled = true;

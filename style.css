@@ -31,7 +31,15 @@ body {
 	align-items: center;
 }
 
+#artistExist {
+	display: none;
+}
+
 #albumMessage {
+	display: none;
+}
+
+#artistMessage {
 	display: none;
 }
 

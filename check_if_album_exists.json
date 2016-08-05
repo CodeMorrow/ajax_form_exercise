@@ -1,1 +1,6 @@
-{"albumTitle":"true"}
+{
+	"album": {
+		"albumTitle":["true"], 
+		"albumArtist":["true"]
+	}
+}

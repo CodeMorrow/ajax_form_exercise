@@ -46,6 +46,13 @@ window.addEventListener("load", function() {
 
 	nextButton[1].addEventListener('click', function(){
 
+		album.style.display = "none";
+		albumImages.style.display = "flex";
+		albumImages__backButton[0].style.display = "none";
+	});
+
+	nextButton[2].addEventListener('click', function(){
+
 		bandMembers.style.display ="none";
 debugger;
 			for (var i = 0; i < eachBandMember.length; i++) {
@@ -89,7 +96,7 @@ debugger;
 		
 	});
 
-	nextButton[2].addEventListener('click', function(){
+	nextButton[3].addEventListener('click', function(){
 
 		bandMembers__info.style.display ="none";
 		albumImages.style.display = "flex";
@@ -98,14 +105,14 @@ debugger;
 
 	});
 
-	nextButton[3].addEventListener('click', function(){
+	nextButton[4].addEventListener('click', function(){
 
 		albumImages.style.display = "none";
 		albumInfo.style.display = "flex";
 
 	});
 
-	nextButton[4].addEventListener('click', function(){
+	nextButton[5].addEventListener('click', function(){
 
 		albumInfo.style.display = "none";
 		albumTracks.style.display = "flex";
@@ -171,7 +178,7 @@ debugger;
 
 	});
 
-// ####################################### Code for Check if Album Exist ##################################### 
+// ####################################### Code to Check if Album Exist ##################################### 
 
 	albumTitle.addEventListener("keyup", function(){
 		
@@ -181,7 +188,7 @@ debugger;
 
 			var albumDB = JSON.parse(e.target.response);
 
-				if (albumDB.albumTitle == albumTitle.value){
+				if (albumDB.album.albumTitle == albumTitle.value){
 					albumMessage.style.display = "flex";
 					albumMessage.innerHTML = "This album already exists.";
 					nextButton[0].disabled = true;
@@ -196,7 +203,7 @@ debugger;
 		albumChecker.send();
 	});
 
-// ####################################### Code for Check if Artist Exist ##################################### 
+// ####################################### Code to Check if Artist Exist ##################################### 
 
 	albumArtist.addEventListener("keyup", function(){
 		
@@ -204,8 +211,18 @@ debugger;
 debugger;
 		artistChecker.addEventListener('load', function(j){
 
-		
+			var artistDB = JSON.parse(j.target.response);
 
+			if (artistDB.album.albumArtist == albumArtist.value){
+					artistMessage.style.display = "flex";
+					artistMessage.innerHTML = "This artist already exists.";
+					nextButton[0].style.display = "none";
+					nextButton[1].style.display = "flex";
+				} else {
+					artistMessage.style.display = "none";
+					nextButton[0].style.display = "flex";
+					nextButton[1].style.display = "none";
+				}
 		});
 
 		artistChecker.open('get', 'check_if_album_exists.json');

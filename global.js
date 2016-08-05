@@ -145,7 +145,7 @@ debugger;
 		eachBandMember[0].style.display ="flex";
 		
 		if (eachBandMember.length > 1){
-			eachBandMember[eachBandMember.length-1].style.display ="none";    // This works for only two band members
+			eachBandMember[eachBandMember.length-1].style.display ="none";
 		}
 
 	});
@@ -171,29 +171,47 @@ debugger;
 
 	});
 
-// ####################################### Code for Check if Album or Artist Exist ##################################### 
+// ####################################### Code for Check if Album Exist ##################################### 
 
 	albumTitle.addEventListener("keyup", function(){
 		
-		var checker = new XMLHttpRequest();
-
-		checker.addEventListener('load', function(e){
+		var albumChecker = new XMLHttpRequest();
 debugger;
-			var albumDB = JSON.parse(e.target.repsonseText);
+		albumChecker.addEventListener('load', function(e){
 
-			for (var i = 0; i < albumDB.albumTitle.length; i++) {
-				if (albumDB.albumTitle[i] == albumTitle.value){
+			var albumDB = JSON.parse(e.target.response);
+
+				if (albumDB.albumTitle == albumTitle.value){
 					albumMessage.style.display = "flex";
 					albumMessage.innerHTML = "This album already exists.";
 					nextButton[0].disabled = true;
+				} else {
+					albumMessage.style.display = "none";
+					nextButton[0].disabled = false;
 				}
-			}
 
 		});
 
-		checker.open('get', 'check_if_album_exists.json');
-		checker.send();
+		albumChecker.open('get', 'check_if_album_exists.json');
+		albumChecker.send();
 	});
+
+// ####################################### Code for Check if Artist Exist ##################################### 
+
+	albumArtist.addEventListener("keyup", function(){
+		
+		var artistChecker = new XMLHttpRequest();
+debugger;
+		artistChecker.addEventListener('load', function(j){
+
+		
+
+		});
+
+		artistChecker.open('get', 'check_if_album_exists.json');
+		artistChecker.send();
+	});
+
 
 // ####################################### Code for Add Band Member Code ##################################### 
 

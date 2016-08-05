@@ -31,6 +31,10 @@ body {
 	align-items: center;
 }
 
+#albumMessage {
+	display: none;
+}
+
 #bandMembers {
 	display: none;
 }

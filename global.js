@@ -8,8 +8,10 @@ window.addEventListener("load", function() {
 	var albumImages = document.getElementById("albumImages");
 	var albumImageDiv = document.getElementById("albumImageDiv");
 	var albumInfo = document.getElementById("albumInfo");
+	var albumMessage = document.getElementById("albumMessage");
 	var albumTitle = document.getElementById("albumTitle");
 	var albumTracks = document.getElementById("albumTracks");
+	var artistMessage = document.getElementById("artistMessage");
 	var bandMember__location = document.getElementById("bandMember__location");
 	var bandMemberBackButton = document.getElementById("bandMemberBackButton");
 	var bandMemberNames = document.getElementById("bandMemberNames");
@@ -29,8 +31,6 @@ window.addEventListener("load", function() {
 	var eachAlbumTrack = document.getElementsByClassName("eachAlbumTrack");
 	var eachBandMember = document.getElementsByClassName("eachBandMember");
 	var nextButton = document.getElementsByClassName("nextButton");
-
-	
 
 
 // ############################################## Code of all my Next Buttons #############################################
@@ -169,6 +169,30 @@ debugger;
 		albumTracks.style.display = "none";
 		albumInfo.style.display = "flex";
 
+	});
+
+// ####################################### Code for Check if Album or Artist Exist ##################################### 
+
+	albumTitle.addEventListener("keyup", function(){
+		
+		var checker = new XMLHttpRequest();
+
+		checker.addEventListener('load', function(e){
+debugger;
+			var albumDB = JSON.parse(e.target.repsonseText);
+
+			for (var i = 0; i < albumDB.albumTitle.length; i++) {
+				if (albumDB.albumTitle == albumTitle.value){
+					albumMessage.style.display = "flex";
+					albumMessage.innerHTML = "This album already exists.";
+					nextButton[0].disabled = true;
+				}
+			}
+
+		});
+
+		checker.open('get', 'check_if_album_exists.json');
+		checker.send();
 	});
 
 // ####################################### Code for Add Band Member Code ##################################### 
